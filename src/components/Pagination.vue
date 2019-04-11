@@ -2,7 +2,7 @@
     <b-pagination
         class="pagination"
         :total="total"
-        :current.sync="currentPage"
+        :current.sync="current"
         :order="order"
         :size="size"
         :simple="isSimple"
@@ -21,12 +21,19 @@
         data() {
             return {
                 total: 50,
-                current: 1,
                 perPage: 10,
                 order: '',
                 size: '',
                 isSimple: false,
                 isRounded: true
+            }
+        },
+        computed: {
+            current: {
+                get(){
+                    return this.currentPage
+                },
+                set(){}
             }
         },
         props: {
